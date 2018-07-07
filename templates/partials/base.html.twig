@@ -39,7 +39,7 @@
 {% block header %}
     <nav class="navbar" >
 		<div class="logo-box">
-			<img class="page-logo" src="{{url(page.media.images|first)}}" />
+            {{ page.media['logo.jpg'].html('', 'Page logo', 'page-logo') }}
 		</div>
         {% block header_navigation %}
             {% include 'partials/navigation.html.twig' %}
