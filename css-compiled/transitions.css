@@ -1,0 +1,22 @@
+#pt-main {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#pt-main .panel {
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  display: flex;
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 0.5s linear;
+}
+#pt-main .panel:target {
+  position: static;
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*# sourceMappingURL=transitions.css.map */

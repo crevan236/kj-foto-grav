@@ -1,0 +1,45 @@
+
+// body {
+//     overflow-x: hidden;
+// }
+// .panel{
+// 	min-height: 100vh;
+// 	overflow-y: auto;
+// 	overflow-x: hidden;
+// 	margin-top: -150%;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     background-color: #fcfcfc;
+// 	z-index: 2;
+// 	transition: all .8s ease-in-out;
+// }
+// .panel:target{
+// 	margin-top: 0%;
+// }
+// .content{
+// 	left: 0px;
+// 	top: 0px;
+// 	position: absolute;
+// }
+
+#pt-main {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .panel {
+        position: absolute;
+        top: -100vh;
+        left: -100vw;
+        display: flex;
+        opacity: 0;
+        transform: scale(0.1);
+        transition: all 0.5s linear;
+        &:target {
+            position: static;
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

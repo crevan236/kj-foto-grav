@@ -1,0 +1,102 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.min.css', 100) %}
+        {# {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %} #}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css', 99) %}
+        {% do assets.addCss('https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext', 98) %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css', 97) %}
+        {% do assets.addCss('https://fonts.googleapis.com/css?family=Raleway', 96) %}
+        {% do assets.addCss('theme://css/custom.css', 95) %}
+        {% do assets.addDirCss('theme://css-compiled') %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+        {% do assets.addJs('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/min/tiny-slider.js', 99) %}
+        {% do assets.addJs('theme://js/main.js', 99) %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body class="{{ page.header.body_classes }}">
+
+{% block header %}
+    <nav class="navbar" >
+		<div class="logo-box">
+			<img class="page-logo" src="{{url(page.media.images|first)}}" />
+		</div>
+        {% block header_navigation %}
+            {% include 'partials/navigation.html.twig' %}
+        {% endblock %}
+	</nav>
+{% endblock %}
+{% block body %}
+    <main id="pt-main" class="container-fluid no-padding">
+		{% block content %}{% endblock %}
+    </main>
+{% endblock %}
+{% block footer %}
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+<script>
+  var slider = tns({
+    container: '.slider',
+    items: 1,
+    slideBy: 'page',
+    autoplay: true,
+	controls: false,
+	nav: false,
+	arrowKeys: true,
+	autoplayButtonOutput: false,
+	mode: 'gallery',
+	speed: 2000
+  });
+</script>
+<script type="text/javascript">
+	var feedback_form = $('.feedback_form');
+	feedback_form.submit(function (e) {
+		var messageBox = document.querySelector('.message-sent-success');
+		var form_data = {};
+		feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
+		$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
+			feedback_form[0][0].value = '';
+			feedback_form[0][1].value = '';
+			messageBox.style.display = 'block';
+			setTimeout(function () {
+				messageBox.style.display = 'none';
+			}, 10000);
+		})
+		e.preventDefault()
+	})
+	// thing to get around using localhost:3000 with api endpoints only available on port 5000
+	function get_base_url () {
+		return (window.location.href.indexOf('localhost') + 1)
+			?	'http://localhost:5000'
+			:	''
+	}
+
+	function onSubmit(token) {
+      $('.feedback_form').submit();
+    }
+</script>
+</body>
+</html>

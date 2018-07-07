@@ -1,0 +1,27 @@
+name: Kj Foto
+version: 0.1.0
+description: Jeziorscy fotografia web page
+icon: rebel
+author:
+  name: crevan236
+  email: espane236@gmail.com
+homepage: https://github.com/crevan236/grav-theme-kj-foto
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/crevan236/grav-theme-kj-foto/issues
+readme: https://github.com/crevan236/grav-theme-kj-foto/blob/develop/README.md
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

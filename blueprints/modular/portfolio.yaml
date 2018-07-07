@@ -1,0 +1,40 @@
+extends@: default
+child_type: item
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        slider:
+          type: tab
+          title: Portfolio
+
+          fields:
+            header.portfolio:
+              name: portfolio
+              type: list
+              style: vertical
+              label: Portfolio
+              fields:
+                .img:
+                  type: file
+                  label: Zdjęcie
+                  destination: 'user/themes/kj-foto/images/uploaded'
+                  multiple: false
+                  filesize: 1
+                  accept:
+                  - image/*
+                .text:
+                  type: text
+                  label: Tytuł
+                .linkPage:
+                  type: pages
+                  size: medium
+                  classes: fancy
+                  label: Link do strony
+                  show_all: false
+                  show_modular: false
+                  show_root: true

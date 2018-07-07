@@ -1,0 +1,20 @@
+<section id="portfolio" class="row panel">
+	<div class="col content">
+		<div class="row">
+			{% for section in page.header.portfolio %}
+				<div class="col-sm-12 col-md-6 col-xl-3 img-box" 
+        {%  for key, item in section.img %}			            	
+        style="background-image: url('{{url(item.path)}}')" >
+        {% endfor %}
+					<a href="{{ base_url }}{{section.linkPage}}" class="portfolio-link" >
+						<div class="img-desc">
+							<h4>{{ section.text }}</h4>
+						</div>
+						<div class="hover-shadow">
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+	</div>
+</section>

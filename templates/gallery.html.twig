@@ -1,0 +1,14 @@
+{% extends 'partials/gallerybase.html.twig' %}
+
+{% block content %}
+    <section id="gallery" class="row">
+            <div class="returner" ><a href="../#portfolio" >POwrót</a></div>
+			<div class="col gallery-wrapper">
+                {% for image in page.media.images %}
+                    <a href="{{image.url}}" data-lightbox="gallery">
+                        {{ image.thumbnail('default').html }}
+                    </a>
+                {% endfor %}
+            </div>
+		</section>
+{% endblock %}

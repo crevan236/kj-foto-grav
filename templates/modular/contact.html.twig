@@ -1,0 +1,60 @@
+<div class="container">
+  <section id="contact" class="row panel">
+		<div class="col content">
+			<div class="row">
+				<div class="col">
+					<h2 class="section-title" >{{page.header.title}}</h2>
+					<p>{{page.header.desc|markdown}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="contact-box">
+						<img class="contact-icon" src="{{ url('theme://images/mail.svg') }}" >
+						<h6 class="contact-details" >{{page.header.email}}</h6>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="contact-box">
+						<img class="contact-icon" src="{{ url('theme://images/phone.svg') }}" >
+						<h6 class="contact-details" >{{page.header.phone}}</h6>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="contact-box">
+						<img class="contact-icon" src="{{ url('theme://images/facebook-logo.svg') }}" >
+						<h6 class="contact-details" ><a href="{{page.header.fb}}" target="_blank" >Facebook</a></h6>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="row">
+						<div class="col pt-4">
+							<h4>{{page.header.formTitle}}</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col" style="flex-direction: column" >
+							<form class="feedback_form">
+								<label for="email">{{page.header.emailLabel}}</label>
+								<input class="u-full-width" placeholder="{{page.header.emailPlaceholder}}" name="email" id="email" type="email">
+								<label for="message">{{page.header.messageLabel}}</label>
+								<textarea class="u-full-width" placeholder="{{page.header.messagePlaceholder}}" name="message" id="message"></textarea>
+								<input type="hidden" name="receiver" value="{{page.header.receiverEmail}}" >
+								<button class="button-primary mt-2 g-recaptcha" data-sitekey="6LfRSVoUAAAAAITaJtMpkXiIyzQCJ-xf4moG6Dqh" data-callback='onSubmit'>{{page.header.buttonText}}</button>
+							</form>
+							<div class="message-sent-success" style="display: none" >{{page.header.successMessage}}</div>
+              <div class="row footer-wrapper">
+	              <div class="col footer pt-4">
+	              	Copyright &copy; Jeziorscy fotografia | Wszelkie prawa zastrzeżone.
+	              </div>
+              </div>
+            </div>
+					</div>
+					<div style="visibility: hidden" >Icons made by <a href="https://www.flaticon.com/authors/zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

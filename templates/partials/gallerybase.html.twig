@@ -1,0 +1,51 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.min.css', 100) %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css', 99) %}
+        {% do assets.addCss('https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext', 98) %}
+        {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css', 97) %}
+        {% do assets.addDirCss('theme://css-compiled') %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+        {% do assets.addJs('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js', 99) %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body class="{{ page.header.body_classes }}">
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    <main class="container-fluid no-padding">
+		{% block content %}{% endblock %}
+    </main>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+</body>
+</html>

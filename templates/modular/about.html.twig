@@ -1,0 +1,40 @@
+<div class="container">
+  <section id="about" class="row panel">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col content">
+  				<div class="row">
+  					<div class="col">
+  						<h2 class="section-title">{{page.header.title}}</h2>
+  					</div>
+  				</div>
+          {% for section in page.header.sections %}
+            {% if section.isRight %}
+              <div class="row">
+  							<div class="col">
+  								<p>{{section.desc|markdown}}</p>
+  							</div>
+  							<div class="col-12 col-sm-6 col-xl-4">
+  								{%  for key, item in section.img %}
+                      <img class="img-about" src="{{ url(item.path)}}" alt="nasze foty" />
+			            {% endfor %}	
+  							</div>
+  						</div>
+            {% else %}
+              <div class="row">
+  							<div class="col-12 col-sm-6 col-xl-4">
+                  {%  for key, item in section.img %}
+                      <img class="img-about" src="{{ url(item.path)}}" alt="nasze foty" />
+			            {% endfor %}	
+  							</div>
+  							<div class="col">
+  								<p>{{section.desc|markdown}}</p>
+  							</div>
+  						</div>
+            {% endif %}
+          {% endfor %}
+  			</div>
+  		</div>
+  	</div>
+  </section>
+</div>

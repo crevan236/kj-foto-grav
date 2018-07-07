@@ -1,0 +1,13 @@
+<section id="home" class="row panel">
+	<div class="col">
+		<div class="slider">
+    {% for slide in page.header.sliders %}
+      <div class="slide" >
+          {%  for key, item in slide.img %}
+            <img src="{{url(item.path)}}" alt="{{slide.text}}" class="slider-img" />
+			    {% endfor %}	
+				</div>
+    {% endfor %}
+		</div>
+	</div>
+</section>

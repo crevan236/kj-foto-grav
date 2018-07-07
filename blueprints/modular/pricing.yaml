@@ -1,0 +1,40 @@
+extends@: default
+child_type: item
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        slider:
+          type: tab
+          title: Oferta
+
+          fields:
+            header.title:
+              type: text
+              label: Tytuł
+            header.sections:
+              name: sections
+              type: list
+              style: vertical
+              label: Oferta
+              fields:
+                .title:
+                  type: text
+                  label: Tytuł
+                .desc:
+                  classes: frontmatter
+                  type: editor
+                  label: Opis
+                  codemirror:
+                    mode: 'gfm'
+                    indentUnit: 4
+                    autofocus: false
+                    indentWithTabs: false
+                    lineNumbers: false
+                    styleActiveLine: true
+                    gutters: ['CodeMirror-lint-markers']
+                    lint: true

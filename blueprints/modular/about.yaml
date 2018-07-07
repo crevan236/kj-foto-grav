@@ -1,0 +1,54 @@
+extends@: default
+child_type: item
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        slider:
+          type: tab
+          title: O nas
+
+          fields:
+            header.title:
+              type: text
+              label: Tytuł
+            header.sections:
+              name: sections
+              type: list
+              style: vertical
+              label: Sekcje
+              fields:
+                .desc:
+                  type: editor
+                  label: Opis
+                  codemirror:
+                    mode: 'gfm'
+                    indentUnit: 4
+                    autofocus: false
+                    indentWithTabs: false
+                    lineNumbers: false
+                    styleActiveLine: true
+                    gutters: ['CodeMirror-lint-markers']
+                    lint: true
+                .img:
+                  type: file
+                  label: Zdjęcie
+                  destination: 'user/themes/kj-foto/images/uploaded'
+                  multiple: false
+                  filesize: 1
+                  accept:
+                  - image/*
+                .isRight:
+                  type: toggle
+                  label: Do prawej
+                  highlight: 1
+                  help: Czy zdjęcie ma być po prawej?
+                  options:
+                      1: Tak
+                      0: Nie
+                  validate:
+                      type: bool
