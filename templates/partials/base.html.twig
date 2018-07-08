@@ -21,7 +21,10 @@
         {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css', 97) %}
         {% do assets.addCss('https://fonts.googleapis.com/css?family=Raleway', 96) %}
         {% do assets.addCss('theme://css/custom.css', 95) %}
-        {% do assets.addDirCss('theme://css-compiled') %}
+        {% do assets.addCss('theme://css/fontello.css', 95) %}
+        {% do assets.addCss('theme://css/main.css', 95) %}
+        {% do assets.addCss('theme://css/skeleton.css', 95) %}
+        {% do assets.addCss('theme://css/transitions.css', 95) %}
     {% endblock %}
     {{ assets.css() }}
 

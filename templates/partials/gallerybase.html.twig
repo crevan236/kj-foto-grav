@@ -18,7 +18,9 @@
         {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css', 99) %}
         {% do assets.addCss('https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext', 98) %}
         {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css', 97) %}
-        {% do assets.addDirCss('theme://css-compiled') %}
+        {% do assets.addCss('theme://css/gallery.css') %}
+        {% do assets.addCss('theme://css/skeleton.css') %}
+        {% do assets.addCss('theme://css/main.css') %}
     {% endblock %}
     {{ assets.css() }}
 
