@@ -2,7 +2,7 @@
 
 {% block content %}
     <section id="gallery" class="row">
-            <div class="returner" ><a href="../#portfolio" >POwrót</a></div>
+            <div class="returner" ><a href="{{ home_url }}#portfolio" >{{page.header.returnText}}</a></div>
 			<div class="col gallery-wrapper">
                 {% for image in page.media.images %}
                     <a href="{{image.url}}" data-lightbox="gallery">

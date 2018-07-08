@@ -1,0 +1,17 @@
+<div class="container">
+<div class="row">
+	<div class="col" style="flex-direction: column" >
+		{% block content %}
+
+      {{ content }}
+      {% include "forms/form.html.twig" %}
+
+    {% endblock %}
+    <div class="row footer-wrapper">
+      <div class="col footer pt-4">
+      	Copyright &copy; Jeziorscy fotografia | Wszelkie prawa zastrzeżone.
+      </div>
+    </div>
+  </div>
+</div>
+</div>

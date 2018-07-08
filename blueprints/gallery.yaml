@@ -1,0 +1,18 @@
+extends@: default
+child_type: item
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        slider:
+          type: tab
+          title: Galeria
+
+          fields:
+            header.returnText:
+              type: text
+              label: Tekst powrotu
