@@ -17,6 +17,8 @@ window.addEventListener('load', function() {
             var prevEl = document.querySelector('.active');
             prevEl.classList.remove('active');
             el.classList.add('active');
+            toPageTop('#' + el.href.split('#')[1]);
+            hideMenu();
         });
     });
 });
@@ -44,4 +46,20 @@ function manageBars () {
             menu.classList.add('hidden-to-right');
         }
     });
+}
+
+function hideMenu () {
+    const menu = document.querySelector('.menu');
+    if (!menu.classList.contains('hidden-to-right')) {
+        menu.classList.add('hidden-to-right');
+    }
+}
+
+function toPageTop (id) {
+    const element = document.querySelector(id);
+    const section = element.parentElement;
+    setTimeout(function () {
+        section.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
+    }, 500);
+    // element.scrollIntoView(true);
 }
