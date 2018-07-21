@@ -23,6 +23,7 @@ form:
                   type: file
                   label: Zdjęcie
                   destination: 'user/themes/kj-foto/images/uploaded'
+                  random_name: true
                   multiple: false
                   filesize: 1
                   accept:
