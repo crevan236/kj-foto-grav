@@ -2,6 +2,8 @@ extends@: default
 child_type: item
 
 form:
+  name: contact-form
+  action: '/contact'
   fields:
     tabs:
       type: tabs
@@ -28,32 +30,4 @@ form:
             header.fb:
               type: text
               label: Facebook
-        form:
-          type: tab
-          title: Formularz
-
-          fields:
-            header.formTitle:
-              type: text
-              label: Tytuł formularza
-            header.emailLabel:
-              type: text
-              label: Label adresu email
-            header.emailPlaceholder:
-              type: text
-              label: Placeholder adresu email
-            header.messageLabel:
-              type: text
-              label: Label wiadomości
-            header.messagePlaceholder:
-              type: text
-              label: Placeholder wiadomości
-            header.receiverEmail:
-              type: text
-              label: Adres odbiorcy
-            header.buttonText:
-              type: text
-              label: Tekst przycisku
-            header.successMessage:
-              type: text
               label: Alert o powodzeniu

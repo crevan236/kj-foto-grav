@@ -36,15 +36,8 @@
 					</div>
 					<div class="row">
 						<div class="col" style="flex-direction: column" >
-							<form class="feedback_form">
-								<label for="email">{{page.header.emailLabel}}</label>
-								<input class="u-full-width" placeholder="{{page.header.emailPlaceholder}}" name="email" id="email" type="email">
-								<label for="message">{{page.header.messageLabel}}</label>
-								<textarea class="u-full-width" placeholder="{{page.header.messagePlaceholder}}" name="message" id="message"></textarea>
-								<input type="hidden" name="receiver" value="{{page.header.receiverEmail}}" >
-								<button class="button-primary mt-2 g-recaptcha" data-sitekey="6LfRSVoUAAAAAITaJtMpkXiIyzQCJ-xf4moG6Dqh" data-callback='onSubmit'>{{page.header.buttonText}}</button>
-							</form>
-							<div class="message-sent-success" style="display: none" >{{page.header.successMessage}}</div>
+							{% include "forms/form.html.twig" %}
+							<div id="#form-result"></div>
               <div class="row footer-wrapper">
 	              <div class="col footer pt-4">
 	              	Copyright &copy; Jeziorscy fotografia | Wszelkie prawa zastrzeżone.

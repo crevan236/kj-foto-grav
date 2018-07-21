@@ -75,31 +75,22 @@
   });
 </script>
 <script type="text/javascript">
-	var feedback_form = $('.feedback_form');
-	feedback_form.submit(function (e) {
-		var messageBox = document.querySelector('.message-sent-success');
-		var form_data = {};
-		feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
-		$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
-			feedback_form[0][0].value = '';
-			feedback_form[0][1].value = '';
-			messageBox.style.display = 'block';
-			setTimeout(function () {
-				messageBox.style.display = 'none';
-			}, 10000);
-		})
-		e.preventDefault()
-	})
-	// thing to get around using localhost:3000 with api endpoints only available on port 5000
-	function get_base_url () {
-		return (window.location.href.indexOf('localhost') + 1)
-			?	'http://localhost:5000'
-			:	''
-	}
+    $(document).ready(function(){
 
-	function onSubmit(token) {
-      $('.feedback_form').submit();
-    }
+    var form = $('.feedback_form');
+    form.submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            dataType: 'html',
+            data: form.serialize(),
+            success: function(result) {
+                $('#form-result').html(result);
+            }
+        });
+    });
+});
 </script>
 </body>
 </html>
