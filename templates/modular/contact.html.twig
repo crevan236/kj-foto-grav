@@ -37,7 +37,8 @@
 					<div class="row">
 						<div class="col" style="flex-direction: column" >
 							{% include "forms/form.html.twig" %}
-							<div id="#form-result"></div>
+							<div class="message-sent-success" id="form-result-success" style="display: none;" >{{page.header.successMessage}}</div>
+							<div class="message-sent-error" id="form-result-error" style="display: none;" >Wystąpił problem podczas wysyłania maila, prosimy spróbować później</div>
               <div class="row footer-wrapper">
 	              <div class="col footer pt-4">
 	              	Copyright &copy; Jeziorscy fotografia | Wszelkie prawa zastrzeżone.
@@ -50,4 +51,30 @@
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript">
+    $(document).ready(function(){
+		  var form = $('#contact-form');
+		  form.submit(function(e) {
+		      e.preventDefault();
+		      $.ajax({
+		          url: form.attr('action'),
+		          type: form.attr('method'),
+		          dataType: 'html',
+		          data: form.serialize(),
+		          success: function(result) {
+								// console.warn('success', result);
+		            $('#form-result-success').show();
+								
+		          },
+							error: function(result) {
+								// console.warn('error', result);
+								$('#form-result-error').show();
+							},
+							complete: function() {
+								$('.btn-block').attr("disabled", true);
+							}
+		      });
+		  });
+		});
+	</script>
 </div>

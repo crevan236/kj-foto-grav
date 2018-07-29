@@ -74,23 +74,5 @@
 	speed: 2000
   });
 </script>
-<script type="text/javascript">
-    $(document).ready(function(){
-
-    var form = $('.feedback_form');
-    form.submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: form.attr('action'),
-            type: form.attr('method'),
-            dataType: 'html',
-            data: form.serialize(),
-            success: function(result) {
-                $('#form-result').html(result);
-            }
-        });
-    });
-});
-</script>
 </body>
 </html>
